@@ -7,21 +7,17 @@ export const routes: Routes = [
   {
     path: 'en',
     component: HomeComponent,
-    data: { lang: 'en' },
   },
   {
     path: 'fr',
     component: HomeComponent,
-    data: { lang: 'fr' },
   },
   {
     path: 'en/users',
     component: UsersComponent,
-    data: { lang: 'en' },
   },
   {
     path: 'fr/users',
     component: UsersComponent,
-    data: { lang: 'fr' },
   },
 ];
