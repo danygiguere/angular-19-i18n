@@ -1,0 +1,35 @@
+<ng-container *transloco="let t">
+    <header>
+        <nav class="fixed w-full z-[150] bg-[#1e293b]">
+            <div class="md:container md:mx-auto text-white relative text-sm">
+                <div id="menu-button" class="md:hidden cursor-pointer absolute top-5 right-4">
+                    <div class="w-8 h-8 group relative"><span id="bar-1"
+                            class="absolute w-6 h-[3px] mb-1 block bg-white group-hover:bg-[#07f] rounded-sm top-1 right-0"></span><span
+                            id="bar-2"
+                            class="absolute w-6 h-[3px] mb-1 block bg-white group-hover:bg-[#07f] rounded-sm top-2.5 right-0"></span><span
+                            id="bar-3"
+                            class="absolute w-6 h-[3px] mb-1 block bg-white group-hover:bg-[#07f] rounded-sm top-2.5 right-0"></span><span
+                            id="bar-4"
+                            class="absolute w-6 h-[3px] mb-1 block bg-white group-hover:bg-[#07f] rounded-sm top-4 right-0"></span>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-[150px_1fr] md:pr-4">
+                    <div class="md:justify-self-start"><a class="px-4 pt-2 pb-2 grid w-[150px]" href="/en/"><img
+                                class="w-[50px]" src="https://placehold.co/400x400" alt=""></a></div>
+                    <div id="menu" class="md:grid md:grid-flow-col md:auto-cols-auto hidden">
+                        <ul class="md:grid md:grid-flow-col md:auto-cols-auto md:justify-self-end">
+                            <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
+                                    href="/en">Home</a></li>
+                            <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
+                                    href="/en/users">Users</a></li>
+                            <!-- <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
+                                    href="/en/sign-in">Sign In</a></li>
+                            <li class=""><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
+                                    href="/en/sign-up">Sign Up</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+</ng-container>
