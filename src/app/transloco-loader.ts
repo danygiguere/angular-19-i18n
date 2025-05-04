@@ -9,11 +9,17 @@ export class TranslocoHttpLoader implements TranslocoLoader {
   private injector = inject(Injector);
 
   getTranslation() {
+    // would need to catch the Routes param data: { lang: 'en' } here from app.routes.ts
+    // the router.url call creates a problem with the header component (because the header component is not a page component).
+    // I can fetch the lang param with window.location... but even if I do if(window && window.location) { ... } I get an error: ReferenceError: window is not defined
+    if (window && window.location) {
+      const lang = window.location.pathname.split('/')[1];
+      return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
+    }
     const router = this.injector.get(Router);
-    const langFromUrl = router.url.split('/')[1];
-    // return this.http.get<Translation>(`/assets/i18n/${langFromUrl}.json`);
+    const lang = router.url.split('/')[1];
+    // return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
     return this.http.get<Translation>(`/assets/i18n/en.json`);
-    // return this.http.get<Translation>(`${environment.baseUrl}/assets/i18n/${lang}.json`);
   }
 
 }
