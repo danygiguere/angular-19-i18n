@@ -18,8 +18,8 @@ export class TranslocoHttpLoader implements TranslocoLoader {
     }
     const router = this.injector.get(Router);
     const lang = router.url.split('/')[1];
-    // return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
-    return this.http.get<Translation>(`/assets/i18n/en.json`);
+    return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
+    // return this.http.get<Translation>(`/assets/i18n/en.json`);
   }
 
 }
