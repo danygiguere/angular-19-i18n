@@ -19,9 +19,11 @@
                     <div id="menu" class="md:grid md:grid-flow-col md:auto-cols-auto hidden">
                         <ul class="md:grid md:grid-flow-col md:auto-cols-auto md:justify-self-end">
                             <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
-                                    href="/en">Home</a></li>
+                                    href="/{{ t('lang') }}">{{ t('home-page.title') }}</a></li>
                             <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
-                                    href="/en/users">Users</a></li>
+                                    href="/{{ t('lang') }}/users">{{ t('users-page.title') }}</a></li>
+                            <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" href="/en">En</a></li>
+                            <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" href="/fr">Fr</a></li>
                             <!-- <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
                                     href="/en/sign-in">Sign In</a></li>
                             <li class=""><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"

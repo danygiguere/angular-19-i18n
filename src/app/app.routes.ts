@@ -6,22 +6,18 @@ export const routes: Routes = [
   { path: '', redirectTo: '/en', pathMatch: 'full' },
   {
     path: 'en',
-    component: HomeComponent,
-    data: { lang: 'en' },
+    component: HomeComponent
   },
   {
     path: 'fr',
-    component: HomeComponent,
-    data: { lang: 'fr' },
+    component: HomeComponent
   },
   {
     path: 'en/users',
-    component: UsersComponent,
-    data: { lang: 'en' },
+    component: UsersComponent
   },
   {
     path: 'fr/users',
-    component: UsersComponent,
-    data: { lang: 'fr' },
+    component: UsersComponent
   },
 ];
