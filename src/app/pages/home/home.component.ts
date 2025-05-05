@@ -16,6 +16,6 @@ export class HomeComponent {
   ) {}
   ngOnInit(): void {
     const lang = this.router.url.split('/')[1];
-    this.languageService.switchLanguage(lang);
+    this.languageService.setActiveLanguage(lang);
   }
 }

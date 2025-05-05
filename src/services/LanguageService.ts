@@ -7,7 +7,12 @@ import { TranslocoService } from '@jsverse/transloco';
 export class LanguageService {
   constructor(private translocoService: TranslocoService) {}
 
+  setActiveLanguage(language: string) {
+    this.translocoService.setActiveLang(language);
+  }
+
   switchLanguage(language: string) {
+    // logic to get translated url here
     this.translocoService.setActiveLang(language);
   }
 }
