@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { Router } from '@angular/router';
-import { LanguageService } from '../../services/LanguageService';
-
+import { LanguageService } from '../../../services/LanguageService';
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-home',
   imports: [TranslocoModule],
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
-export class UsersComponent {
+export class HomeComponent {
   constructor(
     private router: Router,
     private languageService: LanguageService
