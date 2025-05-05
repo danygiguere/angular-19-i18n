@@ -11,6 +11,10 @@ import { LanguageService } from '../../../services/LanguageService';
 export class HeaderComponent {
   constructor(private languageService: LanguageService) {}
 
+  getActiveLanguage(): string {
+    return this.languageService.getActiveLanguage();
+  }
+
   getUsersUrl(): string {
     return this.languageService.getUsersUrl();
   }

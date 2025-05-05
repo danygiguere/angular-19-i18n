@@ -17,6 +17,10 @@ export class LanguageService {
     this.translocoService.setActiveLang(language);
   }
 
+  getActiveLanguage(): string {
+    return this.translocoService.getActiveLang();
+  }
+
   getUsersUrl(): string {
     const lang = this.translocoService.getActiveLang();
     return lang === 'en' ? '/en/users' : '/fr/utilisateurs';
