@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LanguageService } from '../../services/LanguageService';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   template: '',
