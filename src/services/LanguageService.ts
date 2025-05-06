@@ -26,17 +26,14 @@ export class LanguageService {
     return lang === 'en' ? '/en/users' : '/fr/utilisateurs';
   }
 
-  getCurrentUrlInBothLanguages(): TranslatedUrls {
+  getTranslatedUrls(): TranslatedUrls {
     const url = this.router.routerState.snapshot.url;
-    let enPath = '';
-    let frPath = '';
     if (url === '/en' || url === '/fr') {
-      enPath = '/en';
-      frPath = '/fr';
+      return new TranslatedUrls('/en', '/fr');
     } else if (url === '/en/users' || url === '/fr/utilisateurs') {
-      enPath = '/en/users';
-      frPath = '/fr/utilisateurs';
+      return new TranslatedUrls('/en/users', '/fr/utilisateurs');
+    } else {
+      return new TranslatedUrls('/en', '/fr'); // Return a default value in case of unsupported URL
     }
-    return new TranslatedUrls(enPath, frPath);
   }
 }

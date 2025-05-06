@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { LanguageService } from '../../../services/LanguageService';
+import { TranslatedUrls } from '../../utils/TranslatedUrls';
 
 @Component({
   selector: 'app-header',
@@ -11,19 +12,15 @@ import { LanguageService } from '../../../services/LanguageService';
 export class HeaderComponent {
   constructor(private languageService: LanguageService) {}
 
-  getActiveLanguage(): string {
+  get locale(): string {
     return this.languageService.getActiveLanguage();
   }
 
-  getUsersUrl(): string {
+  get usersUrl(): string {
     return this.languageService.getUsersUrl();
   }
 
-  getCurrentUrlInEnglish(): string {
-    return this.languageService.getCurrentUrlInBothLanguages().english;
-  }
-
-  getCurrentUrlInFrench(): string {
-    return this.languageService.getCurrentUrlInBothLanguages().french;
+  get translatedUrls(): TranslatedUrls {
+    return this.languageService.getTranslatedUrls();
   }
 }
