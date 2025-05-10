@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
-import { BaseComponent } from '../../components/base-component';
+import { PageComponent } from '../../components/page-component';
 
 @Component({
   selector: 'app-home',
@@ -8,4 +8,4 @@ import { BaseComponent } from '../../components/base-component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent extends BaseComponent {}
+export class HomeComponent extends PageComponent {}

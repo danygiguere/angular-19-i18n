@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
+  imports: [],
   template: '',
 })
-export class BaseComponent implements OnInit {
+export class PageComponent implements OnInit {
   constructor(
     private router: Router,
     private languageService: LanguageService

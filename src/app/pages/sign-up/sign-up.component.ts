@@ -3,9 +3,9 @@ import { TranslocoModule } from '@jsverse/transloco';
 import { PageComponent } from '../../components/page-component';
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-sign-up',
   imports: [TranslocoModule],
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
+  templateUrl: './sign-up.component.html',
+  styleUrl: './sign-up.component.scss',
 })
-export class UsersComponent extends PageComponent {}
+export class SignUpComponent extends PageComponent {}

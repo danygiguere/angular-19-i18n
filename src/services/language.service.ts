@@ -33,7 +33,11 @@ export class LanguageService {
       return new TranslatedUrls('/en', '/fr');
     } else if (url === '/en/users' || url === '/fr/utilisateurs') {
       return new TranslatedUrls('/en/users', '/fr/utilisateurs');
-    } else {
+    } else if (url === '/en/sign-in' || url === '/fr/se-connecter') {
+      return new TranslatedUrls('/en/sign-in', '/fr/se-connecter');
+    } else if (url === '/en/sign-up' || url === '/fr/sinscrire') {
+      return new TranslatedUrls('/en/sign-up', '/fr/sinscrire');
+    }  else {
       const cleanUrl = url.replace(/^\/(en|fr)/, '');
       return new TranslatedUrls(`/en${cleanUrl}`, `/fr${cleanUrl}`); // Return a default value in case of unsupported URL
     }
