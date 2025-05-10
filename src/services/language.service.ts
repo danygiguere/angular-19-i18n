@@ -7,14 +7,16 @@ import { TranslatedUrls } from '../app/utils/TranslatedUrls';
   providedIn: 'root',
 })
 export class LanguageService {
-  
   constructor(
     private translocoService: TranslocoService,
     private router: Router
   ) {}
 
-  setActiveLanguage(language: string) {
-    this.translocoService.setActiveLang(language);
+  setActiveLanguage() {
+    const lang = this.router.url.split('/')[1];
+    if (lang == 'en' || lang == 'fr') {
+      this.translocoService.setActiveLang(lang);
+    }
   }
 
   getActiveLanguage(): string {
@@ -37,7 +39,7 @@ export class LanguageService {
       return new TranslatedUrls('/en/sign-in', '/fr/se-connecter');
     } else if (url === '/en/sign-up' || url === '/fr/sinscrire') {
       return new TranslatedUrls('/en/sign-up', '/fr/sinscrire');
-    }  else {
+    } else {
       const cleanUrl = url.replace(/^\/(en|fr)/, '');
       return new TranslatedUrls(`/en${cleanUrl}`, `/fr${cleanUrl}`); // Return a default value in case of unsupported URL
     }

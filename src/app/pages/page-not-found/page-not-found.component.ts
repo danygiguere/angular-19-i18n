@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
-import { PageComponent } from '../../components/page-component';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-page-not-found',
@@ -8,4 +8,8 @@ import { PageComponent } from '../../components/page-component';
   templateUrl: './page-not-found.component.html',
   styleUrl: './page-not-found.component.css',
 })
-export class PageNotFoundComponent extends PageComponent {}
+export class PageNotFoundComponent {
+  constructor(private languageService: LanguageService) {
+    languageService.setActiveLanguage();
+  }
+}

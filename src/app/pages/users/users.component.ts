@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
-import { PageComponent } from '../../components/page-component';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-users',
@@ -8,4 +8,9 @@ import { PageComponent } from '../../components/page-component';
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
-export class UsersComponent extends PageComponent {}
+export class UsersComponent {
+  constructor(private languageService: LanguageService) {
+    languageService.setActiveLanguage();
+  }
+
+}
