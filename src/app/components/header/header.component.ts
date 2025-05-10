@@ -16,8 +16,16 @@ export class HeaderComponent {
     return this.languageService.getActiveLanguage();
   }
 
-  getUsersUrl(): string {
-    return this.languageService.getUsersUrl();
+  getUsersUrls(): string {
+    return this.languageService.getUsersUrls();
+  }
+
+  getSignInUrls(): string {
+    return this.languageService.getSignInUrls();
+  }
+
+  getSignUpUrls(): string {
+    return this.languageService.getSignUpUrls();
   }
 
   getTranslatedUrls(): TranslatedUrls {

@@ -1,10 +1,16 @@
 {
   "lang": "fr",
   "home-page": {
-    "title": "Page d'accueil"
+    "title": "Accueil"
   },
   "users-page": {
-    "title": "Page utilisateurs"
+    "title": "Utilisateurs"
+  },
+  "sign-in-page": {
+    "title": "Se connecter"
+  },
+  "sign-up-page": {
+    "title": "S'inscrire"
   },
   "page-no-found": {
     "title": "Page non trouvable",

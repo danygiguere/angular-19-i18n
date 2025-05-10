@@ -23,9 +23,19 @@ export class LanguageService {
     return this.translocoService.getActiveLang();
   }
 
-  getUsersUrl(): string {
+  getUsersUrls(): string {
     const lang = this.translocoService.getActiveLang();
     return lang === 'en' ? '/en/users' : '/fr/utilisateurs';
+  }
+
+  getSignInUrls(): string {
+    const lang = this.translocoService.getActiveLang();
+    return lang === 'en' ? '/en/sign-in' : '/fr/se-connecter';
+  }
+
+  getSignUpUrls(): string {
+    const lang = this.translocoService.getActiveLang();
+    return lang === 'en' ? '/en/sign-up' : '/fr/sinscrire';
   }
 
   getTranslatedUrls(): TranslatedUrls {
