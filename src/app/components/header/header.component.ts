@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { LanguageService } from '../../../services/language.service';
 import { TranslatedUrls } from '../../utils/TranslatedUrls';
@@ -10,10 +10,12 @@ import { TranslatedUrls } from '../../utils/TranslatedUrls';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  isMenuHidden: String = 'hidden';
 
-  isMenuHidden: String = "hidden";
-
-  constructor(private languageService: LanguageService) {}
+  constructor(
+    private languageService: LanguageService,
+    private elementRef: ElementRef
+  ) {}
 
   getUsersUrls(): string {
     return this.languageService.getUsersUrls();
@@ -35,8 +37,16 @@ export class HeaderComponent {
     if (this.isMenuHidden == 'hidden') {
       this.isMenuHidden = '';
       return '';
-    } 
+    }
     this.isMenuHidden = 'hidden';
     return 'hidden';
   }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.isMenuHidden = 'hidden';
+    }
+  }
+  
 }
