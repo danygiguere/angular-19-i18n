@@ -1,19 +1,25 @@
 {
   "lang": "fr",
-  "home-page": {
-    "title": "Accueil"
-  },
-  "users-page": {
-    "title": "Utilisateurs"
-  },
-  "sign-in-page": {
-    "title": "Se connecter"
-  },
-  "sign-up-page": {
-    "title": "S'inscrire"
-  },
-  "page-no-found": {
-    "title": "Page non trouvable",
-    "message": "La page que vous recherchez n'existe pas."
+  "pages": {
+    "home": {
+      "url": "/en",
+      "title": "Accueil"
+    },
+    "users": {
+      "url": "/en/utilisateurs",
+      "title": "Utilisateurs"
+    },
+    "sign-in": {
+      "url": "/en/se-connecter",
+      "title": "Se connecter"
+    },
+    "sign-up": {
+      "url": "/en/sinscrire",
+      "title": "S'inscrire"
+    },
+    "page-no-found": {
+      "title": "Page non trouvable",
+      "message": "La page que vous recherchez n'existe pas."
+    }
   }
 }

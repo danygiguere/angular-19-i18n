@@ -1,20 +1,26 @@
 {
   "lang": "en",
-  "home-page": {
-    "title": "Home"
-  },
-  "users-page": {
-    "title": "Users"
-  },
-  "sign-in-page": {
-    "title": "Sign-in"
-  },
-  "sign-up-page": {
-    "title": "Sign-up"
-  },
-  "page-no-found": {
-    "title": "Page not found",
-    "message": "The page you are looking for does not exist."
+  "pages": {
+    "home": {
+      "url": "/en",
+      "title": "Home"
+    },
+    "users": {
+      "url": "/en/users",
+      "title": "Users"
+    },
+    "sign-in": {
+      "url": "/en/sign-in",
+      "title": "Sign-in"
+    },
+    "sign-up": {
+      "url": "/en/sign-up",
+      "title": "Sign-up"
+    },
+    "page-no-found": {
+      "title": "Page not found",
+      "message": "The page you are looking for does not exist."
+    }
   }
 
 }
