@@ -2,7 +2,7 @@
     <header>
         <nav class="fixed w-full z-[150] bg-[#1e293b]">
             <div class="md:container md:mx-auto text-white relative text-sm">
-                <div id="menu-button" class="md:hidden cursor-pointer absolute top-5 right-4">
+                <div id="menu-button" class="md:hidden cursor-pointer absolute top-5 right-4" (click)="toggleMenu()">
                     <div class="w-8 h-8 group relative"><span id="bar-1"
                             class="absolute w-6 h-[3px] mb-1 block bg-white group-hover:bg-[#07f] rounded-sm top-1 right-0"></span><span
                             id="bar-2"
@@ -16,7 +16,7 @@
                 <div class="md:grid md:grid-cols-[150px_1fr] md:pr-4">
                     <div class="md:justify-self-start"><a class="px-4 pt-2 pb-2 grid w-[150px]" href="/{{ t('lang') }}"><img
                                 class="w-[50px]" src="https://placehold.co/400x400" alt=""></a></div>
-                    <div id="menu" class="md:grid md:grid-flow-col md:auto-cols-auto hidden">
+                    <div id="menu" class="md:grid md:grid-flow-col md:auto-cols-auto {{ isMenuHidden }}">
                         <ul class="md:grid md:grid-flow-col md:auto-cols-auto md:justify-self-end">
                             <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black"
                                     href="/{{ t('lang') }}">{{ t('pages.home.title') }}</a></li>

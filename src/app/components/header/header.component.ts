@@ -10,6 +10,9 @@ import { TranslatedUrls } from '../../utils/TranslatedUrls';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+
+  isMenuHidden: String = "hidden";
+
   constructor(private languageService: LanguageService) {}
 
   getUsersUrls(): string {
@@ -26,5 +29,14 @@ export class HeaderComponent {
 
   getTranslatedUrls(): TranslatedUrls {
     return this.languageService.getTranslatedUrls();
+  }
+
+  public toggleMenu(): String {
+    if (this.isMenuHidden == 'hidden') {
+      this.isMenuHidden = '';
+      return '';
+    } 
+    this.isMenuHidden = 'hidden';
+    return 'hidden';
   }
 }
