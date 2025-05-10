@@ -57,3 +57,13 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+I have 3 problems.
+1)  When I start the app, few minutes later, I see these errors in the console:
+ERROR Error: Unable to load translation and all the fallback languages
+    at _TranslocoService.handleFailure (/Users/danygiguere/Documents/Angular/angular-19-i18n/.angular/cache/19.2.10/angular-19-i18n/vite/deps_ssr/@jsverse_transloco.js:1119:13)
+    at eval (/Users/danygiguere/Documents/Angular/angular-19-i18n/.angular/cache/19.2.10/angular-19-i18n/vite/deps_ssr/@jsverse_transloco.js:778:19)
+    at eval (/Users/danygiguere/Documents/Angular/angular-19-i18n/.angular/cache/19.2.10/angular-19-i18n/vite/deps_ssr/chunk-AT4BY72T.js:5850:49)...
+and 2) when I start the app, I can see 8 calls to my languageservice.getTranslatedUrls: console.log('Current URL:', url);
+and 3) if I go to /ens, the page doesn't load...
