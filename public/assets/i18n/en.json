@@ -2,20 +2,23 @@
   "lang": "en",
   "pages": {
     "home": {
-      "url": "/en",
       "title": "Home"
     },
     "users": {
-      "url": "/en/users",
       "title": "Users"
     },
     "sign-in": {
-      "url": "/en/sign-in",
-      "title": "Sign-in"
+      "title": "Sign-in",
+      "email": "Email",
+      "password": "Password",
+      "sign-in": "Sign-in"
     },
     "sign-up": {
-      "url": "/en/sign-up",
-      "title": "Sign-up"
+      "title": "Sign-up",
+      "email": "Email",
+      "password": "Password",
+      "confirm-password": "Confirm your password",
+      "sign-up": "Sign-up"
     },
     "page-no-found": {
       "title": "Page not found",

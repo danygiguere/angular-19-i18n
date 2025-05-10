@@ -6,21 +6,21 @@
                     <Form method="post" class="w-full sm:w-[500px]" id="sign-in">
                         <div>
                             <label htmlFor="" class="">
-                                Your email
+                                {{ t('pages.sign-in.email') }}
                             </label>
                             <input id="email" type="email" name="email"
                             class="p-3 w-full border border-slate-800 rounded-lg bg-white">
                         </div>
                         <div class="mt-4">
                             <label htmlFor="" class="">
-                                Your password
+                                {{ t('pages.sign-in.password') }}
                             </label>
                             <input id="password" type="password" name="password"
                             class="p-3 w-full border border-slate-800 rounded-lg bg-white">
                         </div>
                         <button
                         class="text-center border rounded-full px-4 py-2 mt-4 text-sm font-medium text-white bg-[#1e293b]">
-                            Sign in
+                        {{ t('pages.sign-in.sign-in') }}
                         </button>
                     </Form>
                 </div>

@@ -2,20 +2,23 @@
   "lang": "fr",
   "pages": {
     "home": {
-      "url": "/en",
       "title": "Accueil"
     },
     "users": {
-      "url": "/en/utilisateurs",
       "title": "Utilisateurs"
     },
     "sign-in": {
-      "url": "/en/se-connecter",
-      "title": "Se connecter"
+      "title": "Se connecter",
+      "email": "Courriel",
+      "password": "Mot de passe",
+      "sign-in": "Se connecter"
     },
     "sign-up": {
-      "url": "/en/sinscrire",
-      "title": "S'inscrire"
+      "title": "S'inscrire",
+      "email": "Courriel",
+      "password": "Mot de passe",
+      "confirm-password": "Confirmez le mot de passe",
+      "sign-up": "S'inscrire"
     },
     "page-no-found": {
       "title": "Page non trouvable",
