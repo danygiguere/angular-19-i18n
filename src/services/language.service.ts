@@ -54,4 +54,6 @@ export class LanguageService {
       return new TranslatedUrls(`/en${cleanUrl}`, `/fr${cleanUrl}`); // Return a default value in case of unsupported URL
     }
   }
+
+
 }

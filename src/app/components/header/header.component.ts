@@ -12,10 +12,6 @@ import { TranslatedUrls } from '../../utils/TranslatedUrls';
 export class HeaderComponent {
   constructor(private languageService: LanguageService) {}
 
-  getLocale(): string {
-    return this.languageService.getActiveLanguage();
-  }
-
   getUsersUrls(): string {
     return this.languageService.getUsersUrls();
   }
