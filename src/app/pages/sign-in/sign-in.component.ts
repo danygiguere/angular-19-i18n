@@ -4,6 +4,7 @@ import { LanguageService } from '../../../services/language.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +19,7 @@ export class SignInComponent {
 
   authService = inject(AuthService);
   
-  constructor(private languageService: LanguageService, private fb: FormBuilder) {
+  constructor(private languageService: LanguageService, private fb: FormBuilder, private cookieService: CookieService) {
     languageService.setActiveLanguage();
      this.form = this.fb.group({
       email: [''],
@@ -31,12 +32,9 @@ export class SignInComponent {
       this.submitted = true;
       this.formData = this.form.value;
     }
-    console.log("onSubmit", this.formData)
     this.authService.signIn(this.formData).subscribe({
       next: (response) => {
-        console.log("response", response)
-        // On sauvegarde le token dans un cookie
-   
+        this.cookieService.set('auth', response.token);
       },
       error: (e) => {
         
