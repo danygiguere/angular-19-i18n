@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { PostCreateComponent } from './pages/post-create/post-create.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/en', pathMatch: 'full' },
@@ -38,6 +39,14 @@ export const routes: Routes = [
   {
     path: 'fr/sinscrire',
     component: SignUpComponent,
+  },
+   {
+    path: 'en/posts/create',
+    component: PostCreateComponent,
+  },
+  {
+    path: 'fr/posts/creer',
+    component: PostCreateComponent,
   },
   { path: '**', component: PageNotFoundComponent },
 ];

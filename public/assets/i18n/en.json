@@ -15,6 +15,7 @@
     },
     "sign-up": {
       "title": "Sign-up",
+      "username": "Username",
       "email": "Email",
       "password": "Password",
       "confirm-password": "Confirm your password",
@@ -23,7 +24,15 @@
     "page-no-found": {
       "title": "Page not found",
       "message": "The page you are looking for does not exist."
+    },
+    "posts": {
+      "create": {
+        "title": "Create Post",
+        "post-title": "Title",
+        "description": "Description"
+      }
     }
-  }
+  },
+  "submit": "Submit"
 
 }

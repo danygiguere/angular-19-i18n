@@ -15,6 +15,7 @@
     },
     "sign-up": {
       "title": "S'inscrire",
+      "username": "Nom d'utilisateur",
       "email": "Courriel",
       "password": "Mot de passe",
       "confirm-password": "Confirmez le mot de passe",
@@ -23,6 +24,14 @@
     "page-no-found": {
       "title": "Page non trouvable",
       "message": "La page que vous recherchez n'existe pas."
+     },
+    "posts": {
+      "create": {
+        "title": "Creer Post",
+        "post-title": "Titre",
+        "description": "Description"
+      }
     }
-  }
+  },
+  "submit": "Soumettre"
 }

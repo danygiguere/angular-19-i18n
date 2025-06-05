@@ -1,5 +1,7 @@
 export interface SignInResponseDto {
-  type: string;
-  token: string;
-  expiresIn: string;
+  id: number;
+  username: string;
+  email: string;
+  createdAt: string;
+  updatedAt: string;
 }

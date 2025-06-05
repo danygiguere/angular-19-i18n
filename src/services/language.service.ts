@@ -49,6 +49,8 @@ export class LanguageService {
       return new TranslatedUrls('/en/sign-in', '/fr/se-connecter');
     } else if (url === '/en/sign-up' || url === '/fr/sinscrire') {
       return new TranslatedUrls('/en/sign-up', '/fr/sinscrire');
+    } else if (url === '/en/posts/create' || url === '/fr/posts/creer') {
+      return new TranslatedUrls('/en/posts/create', '/fr/posts/creer');
     } else {
       const cleanUrl = url.replace(/^\/(en|fr)/, '');
       return new TranslatedUrls(`/en${cleanUrl}`, `/fr${cleanUrl}`); // Return a default value in case of unsupported URL

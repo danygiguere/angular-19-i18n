@@ -6,6 +6,13 @@
                     <Form method="post" class="w-full sm:w-[500px]" id="sign-up">
                         <div>
                             <label htmlFor="" class="">
+                                {{ t('pages.sign-up.username') }}
+                            </label>
+                            <input id="username" type="text" name="username"
+                            class="p-3 w-full border border-slate-800 rounded-lg bg-white">
+                        </div>
+                        <div>
+                            <label htmlFor="" class="">
                                 {{ t('pages.sign-up.email') }}
                             </label>
                             <input id="email" type="email" name="email"

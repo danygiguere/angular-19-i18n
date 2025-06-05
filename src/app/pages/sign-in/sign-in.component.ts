@@ -34,7 +34,10 @@ export class SignInComponent {
     }
     this.authService.signIn(this.formData).subscribe({
       next: (response) => {
-        this.cookieService.set('auth', response.token);
+
+        console.log("response", response);
+        
+        this.cookieService.set('userId', response.id.toString());
       },
       error: (e) => {
         

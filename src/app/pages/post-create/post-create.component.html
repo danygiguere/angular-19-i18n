@@ -1,0 +1,30 @@
+<ng-container *transloco="let t">
+    <section class="h-[calc(100vh)] bg-slate-100">
+        <div class="md:container md:mx-auto pt-38 px-4">
+            <div class="grid justify-center">
+                <div class="sm:w-[500px]">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="w-full sm:w-[500px]" id="poast-create">
+                        <div>
+                            <label htmlFor="" class="">
+                                {{ t('pages.posts.create.post-title') }}
+                            </label>
+                            <input id="title" type="text" formControlName="title"
+                            class="p-3 w-full border border-slate-800 rounded-lg bg-white">
+                        </div>
+                        <div class="mt-4">
+                            <label htmlFor="" class="">
+                                 {{ t('pages.posts.create.description') }}
+                            </label>
+                            <textarea id="description" formControlName="description"
+                            class="p-3 w-full border border-slate-800 rounded-lg bg-white"></textarea>
+                        </div>
+                        <button
+                        class="cursor-pointer text-center border rounded-full px-4 py-2 mt-4 text-sm font-medium text-white bg-[#1e293b]">
+                        {{ t('submit') }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>
