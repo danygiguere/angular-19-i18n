@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { LanguageService } from '../../../services/language.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
+import { PostService } from '../../../services/post.service';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class PostCreateComponent {
   form: FormGroup;
   submitted = false;
   formData: any;
+
+  postService = inject(PostService);
 
  constructor(private languageService: LanguageService, private fb: FormBuilder, private cookieService: CookieService) {
     languageService.setActiveLanguage();
@@ -30,6 +33,15 @@ export class PostCreateComponent {
       this.submitted = true;
       this.formData = this.form.value;
     }
-    console.log("formData", this.formData);
+    this.postService.create(this.formData).subscribe({
+      next: (response) => {
+
+        console.log("response", response);
+        
+      },
+      error: (e) => {
+        
+      }
+    });
    }
 }
