@@ -40,7 +40,7 @@ export class PostCreateComponent {
         
       },
       error: (e) => {
-        
+         console.error('PostCreateComponent error handler:', e);
       }
     });
    }
