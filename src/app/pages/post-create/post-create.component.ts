@@ -28,20 +28,23 @@ export class PostCreateComponent {
     });
   }
 
-   onSubmit() {
+   async onSubmit() {
     if (this.form.valid) {
       this.submitted = true;
       this.formData = this.form.value;
     }
-    this.postService.create(this.formData).subscribe({
-      next: (response) => {
-
-        console.log("response", response);
-        
-      },
-      error: (e) => {
-         console.error('PostCreateComponent error handler:', e);
-      }
-    });
+    try {
+      const observable = await this.postService.create(this.formData);
+      observable.subscribe({
+        next: (response) => {
+          console.log("response", response);
+        },
+        error: (e) => {
+          console.error('PostCreateComponent error handler:', e);
+        }
+      });
+    } catch (e) {
+      console.error('PostCreateComponent error handler:', e);
+    }
    }
 }

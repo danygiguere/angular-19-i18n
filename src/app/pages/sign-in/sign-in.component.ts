@@ -38,6 +38,9 @@ export class SignInComponent {
         console.log("response", response);
         
         this.cookieService.set('userId', response.id.toString());
+
+     
+
       },
       error: (e) => {
         
