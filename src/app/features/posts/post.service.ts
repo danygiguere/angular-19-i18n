@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { PostDto } from '../app/posts/dto/post.dto';
+import { PostDto } from './dto/post.dto';
 import { Observable } from 'rxjs';
     import {CookieService} from 'ngx-cookie-service';
-    import { AuthService } from './auth.service';
+    import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'

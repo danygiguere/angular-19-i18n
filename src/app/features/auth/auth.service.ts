@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SignInResponseDto } from '../app/auth/dto/sign-in-response.dto';
+import { SignInResponseDto } from './dto/sign-in-response.dto';
 import { CookieService } from 'ngx-cookie-service';
 import { firstValueFrom } from 'rxjs';
 
