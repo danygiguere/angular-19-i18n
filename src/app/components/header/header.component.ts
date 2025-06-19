@@ -21,6 +21,11 @@ export class HeaderComponent {
     return this.languageService.getUsersUrls();
   }
 
+  getPostsUrls(): string {
+    return this.languageService.getPostsUrls();
+  }
+
+
   getSignInUrls(): string {
     return this.languageService.getSignInUrls();
   }

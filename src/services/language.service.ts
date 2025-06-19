@@ -28,6 +28,11 @@ export class LanguageService {
     return lang === 'en' ? '/en/users' : '/fr/utilisateurs';
   }
 
+  getPostsUrls(): string {
+    const lang = this.translocoService.getActiveLang();
+    return lang === 'en' ? '/en/posts' : '/fr/posts';
+  }
+
   getSignInUrls(): string {
     const lang = this.translocoService.getActiveLang();
     return lang === 'en' ? '/en/sign-in' : '/fr/se-connecter';
@@ -49,6 +54,8 @@ export class LanguageService {
       return new TranslatedUrls('/en/sign-in', '/fr/se-connecter');
     } else if (url === '/en/sign-up' || url === '/fr/sinscrire') {
       return new TranslatedUrls('/en/sign-up', '/fr/sinscrire');
+    } else if (url === '/en/posts' || url === '/fr/posts') {
+      return new TranslatedUrls('/en/posts', '/fr/posts');
     } else if (url === '/en/posts/create' || url === '/fr/posts/creer') {
       return new TranslatedUrls('/en/posts/create', '/fr/posts/creer');
     } else {

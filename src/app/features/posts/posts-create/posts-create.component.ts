@@ -5,15 +5,13 @@ import { LanguageService } from '../../../../services/language.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { PostService } from '../post.service';
-
-
 @Component({
-  selector: 'app-post-create',
+  selector: 'app-posts-create',
   imports: [TranslocoModule, ReactiveFormsModule, CommonModule],
-  templateUrl: './post-create.component.html',
-  styleUrl: './post-create.component.scss'
+  templateUrl: './posts-create.component.html',
+  styleUrl: './posts-create.component.scss'
 })
-export class PostCreateComponent {
+export class PostsCreateComponent {
   form: FormGroup;
   submitted = false;
   formData: any;
@@ -40,11 +38,11 @@ export class PostCreateComponent {
           console.log("response", response);
         },
         error: (e) => {
-          console.error('PostCreateComponent error handler:', e);
+          console.error('PostsCreateComponent error handler:', e);
         }
       });
     } catch (e) {
-      console.error('PostCreateComponent error handler:', e);
+      console.error('PostsCreateComponent error handler:', e);
     }
    }
 }
