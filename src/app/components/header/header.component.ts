@@ -17,9 +17,10 @@ export class HeaderComponent {
     private elementRef: ElementRef
   ) {}
 
-  getTranslatedUrls(): TranslatedUrls {
-    return this.languageService.getTranslatedUrls();
-  }
+  changeLanguage(lang: string): string {
+    console.log('Changing language to:', lang);
+    return this.languageService.changeLanguage(lang as 'en' | 'fr');
+  } 
 
   public toggleMenu(): String {
     if (this.isMenuHidden == 'hidden') {
