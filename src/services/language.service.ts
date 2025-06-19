@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslocoService } from '@jsverse/transloco';
 import { TranslatedUrls } from '../app/utils/TranslatedUrls';
+import en from '../../public/assets/i18n/en.json';
+import fr from '../../public/assets/i18n/fr.json';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
+  
   constructor(
     private translocoService: TranslocoService,
     private router: Router
@@ -21,26 +24,6 @@ export class LanguageService {
 
   getActiveLanguage(): string {
     return this.translocoService.getActiveLang();
-  }
-
-  getUsersUrls(): string {
-    const lang = this.translocoService.getActiveLang();
-    return lang === 'en' ? '/en/users' : '/fr/utilisateurs';
-  }
-
-  getPostsUrls(): string {
-    const lang = this.translocoService.getActiveLang();
-    return lang === 'en' ? '/en/posts' : '/fr/posts';
-  }
-
-  getSignInUrls(): string {
-    const lang = this.translocoService.getActiveLang();
-    return lang === 'en' ? '/en/sign-in' : '/fr/se-connecter';
-  }
-
-  getSignUpUrls(): string {
-    const lang = this.translocoService.getActiveLang();
-    return lang === 'en' ? '/en/sign-up' : '/fr/sinscrire';
   }
 
   getTranslatedUrls(): TranslatedUrls {

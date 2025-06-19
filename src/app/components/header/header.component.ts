@@ -17,23 +17,6 @@ export class HeaderComponent {
     private elementRef: ElementRef
   ) {}
 
-  getUsersUrls(): string {
-    return this.languageService.getUsersUrls();
-  }
-
-  getPostsUrls(): string {
-    return this.languageService.getPostsUrls();
-  }
-
-
-  getSignInUrls(): string {
-    return this.languageService.getSignInUrls();
-  }
-
-  getSignUpUrls(): string {
-    return this.languageService.getSignUpUrls();
-  }
-
   getTranslatedUrls(): TranslatedUrls {
     return this.languageService.getTranslatedUrls();
   }

@@ -33,5 +33,13 @@
       }
     }
   },
-  "submit": "Soumettre"
+  "submit": "Soumettre",
+  "routes": {
+    "home": "/fr",
+    "users": "/fr/utilisateurs",
+    "sign-in": "/fr/se-connecter",
+    "sign-up": "/fr/sinscrire",
+    "posts": "/fr/posts",
+    "posts-create": "/fr/posts/creer"
+  }
 }

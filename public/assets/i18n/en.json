@@ -33,6 +33,14 @@
       }
     }
   },
-  "submit": "Submit"
+  "submit": "Submit",
+  "routes": {
+    "home": "/en",
+    "users": "/en/users",
+    "sign-in": "/en/sign-in",
+    "sign-up": "/en/sign-up",
+    "posts": "/en/posts",
+    "posts-create": "/en/posts/create"
+  }
 
 }
