@@ -35,6 +35,7 @@ export class SignInComponent {
     this.authService.signIn(this.formData).subscribe({
       next: (response) => {
         this.cookieService.set('userId', response.id.toString(), undefined, '/');
+        window.location.href = '/';
       },
       error: (e) => {
         

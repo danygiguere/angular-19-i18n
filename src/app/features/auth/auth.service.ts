@@ -38,16 +38,16 @@ export class AuthService {
     }
   }
 
-  signOut() {
+  signOut(): void {
     console.log('Signing out');
-    this.cookieService.deleteAll('/', 'localhost'); // Delete all cookies for the domain
-    // need to call back end to delete refresh tokens
-    // must instruct the server to delete the cookie by sending a Set-Cookie header with the same cookie name, an expired date, and the same path/domain attributes.
-   this.http.post('http://localhost:8080/logout', {}, { withCredentials: true }).subscribe(() => {
-      console.log('Logged out successfully');
+    this.cookieService.delete('userId', '/');
+    this.cookieService.delete('access_token_expires_at', '/');
+    this.http.post<String>('http://localhost:8080/logout', {}, { withCredentials: true }).subscribe(() => {
+      console.log('Logged out successfully');      
+      window.location.href = '/';
     });
-    window.location.href = '/';
   }
+    
 
  isAuthenticated(): boolean {
     const expiresAtStr = this.cookieService.get('access_token_expires_at');

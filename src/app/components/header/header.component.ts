@@ -21,7 +21,8 @@ export class HeaderComponent {
   ) {}
 
   changeLanguage(lang: string): string {
-    console.log('Changing language to:', lang);
+    //*********************************************************** figure out why this is being called multiple times */
+    // console.log('Changing language to:', lang);
     return this.languageService.changeLanguage(lang as 'en' | 'fr');
   } 
 
