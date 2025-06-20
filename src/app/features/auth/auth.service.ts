@@ -39,10 +39,22 @@ export class AuthService {
   }
 
   signOut() {
-    // destroy cookie
+    console.log('Signing out');
+    this.cookieService.deleteAll('/', 'localhost'); // Delete all cookies for the domain
+    // need to call back end to delete refresh tokens
+    // must instruct the server to delete the cookie by sending a Set-Cookie header with the same cookie name, an expired date, and the same path/domain attributes.
+   this.http.post('http://localhost:8080/logout', {}, { withCredentials: true }).subscribe(() => {
+      console.log('Logged out successfully');
+    });
+    window.location.href = '/';
   }
 
-  isAuthenticated(): boolean {
-    return true;
+ isAuthenticated(): boolean {
+    const expiresAtStr = this.cookieService.get('access_token_expires_at');
+    if (!expiresAtStr) {
+      return false;
+    }
+    const expiresAt = Number(expiresAtStr);
+    return expiresAt > Date.now();
   }
 }

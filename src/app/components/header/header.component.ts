@@ -1,10 +1,13 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { LanguageService } from '../../../services/language.service';
+import { AuthService } from '../../features/auth/auth.service';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-header',
-  imports: [TranslocoModule],
+  imports: [TranslocoModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -13,13 +16,23 @@ export class HeaderComponent {
 
   constructor(
     private languageService: LanguageService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private authService: AuthService
   ) {}
 
   changeLanguage(lang: string): string {
     console.log('Changing language to:', lang);
     return this.languageService.changeLanguage(lang as 'en' | 'fr');
   } 
+
+  get isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  signOut(): void {
+    console.log('Signing out1');
+    this.authService.signOut();
+  }
 
   public toggleMenu(): String {
     if (this.isMenuHidden == 'hidden') {
