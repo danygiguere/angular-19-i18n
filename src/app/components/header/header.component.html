@@ -27,7 +27,7 @@
                             <li *ngIf="!isAuthenticated"><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" href="{{ t('routes.sign-in') }}">{{ t('pages.sign-in.title') }}</a></li>
                             <li *ngIf="!isAuthenticated" class=""><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" href="{{ t('routes.sign-up') }}">{{ t('pages.sign-up.title') }}</a></li>
                             <li *ngIf="isAuthenticated">
-                                <button class="cursor-pointer -webkit-fill-available text-left h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" (click)="signOut()">Sign Out</button>
+                                <button class="cursor-pointer w-full text-left h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" (click)="signOut()">Sign Out</button>
                             </li>
                             <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" href="{{ changeLanguage('en') }}">En</a></li>
                             <li><a class="h-full px-4 py-2 grid md:px-2 md:py-5 hover:bg-white hover:text-black" href="{{ changeLanguage('fr') }}">Fr</a></li>
