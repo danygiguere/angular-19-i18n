@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
-import { LanguageService } from '../../../../services/language.service';
+import { LanguageService } from '../../../../../services/language.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 import {CookieService} from 'ngx-cookie-service';
 
 @Component({

@@ -3,13 +3,14 @@ import { TranslocoModule } from '@jsverse/transloco';
 import { LanguageService } from '../../../../services/language.service';
 
 @Component({
-  selector: 'app-posts-index',
+  selector: 'app-users',
   imports: [TranslocoModule],
-  templateUrl: './posts-index.component.html',
-  styleUrl: './posts-index.component.scss'
+  templateUrl: './users.component.html',
+  styleUrl: './users.component.scss',
 })
-export class PostsIndexComponent {
+export class UsersComponent {
   constructor(private languageService: LanguageService) {
-      languageService.setActiveLanguage();
-    }
+    languageService.setActiveLanguage();
+  }
+
 }

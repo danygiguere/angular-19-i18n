@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { UsersComponent } from './features/users/users.component';
+import { UsersComponent } from './features/users/pages/users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { SignInComponent } from './features/auth/sign-in/sign-in.component';
-import { SignUpComponent } from './features/auth/sign-up/sign-up.component';
-import { PostsCreateComponent } from './features/posts/posts-create/posts-create.component';
-import { PostsIndexComponent } from './features/posts/posts-index/posts-index.component';
+import { SignInComponent } from './features/auth/pages/sign-in/sign-in.component';
+import { SignUpComponent } from './features/auth/pages/sign-up/sign-up.component';
+import { PostsCreateComponent } from './features/posts/pages/posts-create/posts-create.component';
+import { PostsIndexComponent } from './features/posts/pages/posts-index/posts-index.component';
 import en from '../../public/assets/i18n/en.json';
 import fr from '../../public/assets/i18n/fr.json';
 
