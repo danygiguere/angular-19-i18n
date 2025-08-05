@@ -18,7 +18,7 @@ export class SignInComponent {
   formData: any;
 
   authService = inject(AuthService);
-  
+
   constructor(private languageService: LanguageService, private fb: FormBuilder, private cookieService: CookieService) {
     languageService.setActiveLanguage();
      this.form = this.fb.group({
@@ -38,7 +38,7 @@ export class SignInComponent {
         window.location.href = '/';
       },
       error: (e) => {
-        
+
       }
     });
    }
