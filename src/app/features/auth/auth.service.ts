@@ -15,11 +15,11 @@ export class AuthService {
   http = inject(HttpClient);
 
   signIn(credential: Credential): Observable<SignInResponseDto> {
-    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/login`, credential, { withCredentials: true });
+    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/login/cookie`, credential, { withCredentials: true });
   }
 
   refreshToken(): Observable<SignInResponseDto> {
-    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/refresh-token`, {}, { withCredentials: true });
+    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/refresh-token/cookie`, {}, { withCredentials: true });
   }
 
   signUp(credential: Credential): Observable<String> {
