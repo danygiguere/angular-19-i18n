@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private readonly API_URL = 'http://localhost:8080';
 
   async create(postData: any, authToken: string) {
-    const response = await fetch(`${this.API_URL}/posts`, {
+    const response = await fetch(`${environment.apiUrl}/posts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export class PostService {
 //
 //   async create(postData: any, authToken: string) {
 //     const response = await this.httpService.post(
-//       'http://localhost:8080/posts',
+//       `${environment.apiUrl}/posts`,
 //       postData,
 //       {
 //         headers: {
