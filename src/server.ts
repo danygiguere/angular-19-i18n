@@ -8,7 +8,6 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { environment } from './environments/environment';
 
 import { PostService } from './server/services/post.service.server';
 
@@ -20,7 +19,6 @@ app.use(cookieParser());
 const angularApp = new AngularNodeAppEngine();
 
 const postService = new PostService(/* inject dependencies */);
-
 
 app.post('/api/posts', express.json(), async (req, res) => {
   try {
@@ -76,7 +74,7 @@ app.use('/**', (req, res, next) => {
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
   app.listen(port, () => {
-    console.log(`Node Express server listening on ${environment.apiUrl}`);
+    console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
 
