@@ -4,9 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:prod": "ng serve --configuration=production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "docker:dev": "docker-compose up app-dev",
+    "docker:prod": "docker-compose up app-prod",
+    "docker:down": "docker-compose down"
   },
   "private": true,
   "dependencies": {

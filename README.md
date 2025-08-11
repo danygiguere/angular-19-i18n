@@ -4,13 +4,32 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Development server
 
-To start a local development server, run:
+To start a local development server in development mode, run:
 
 ```bash
 ng serve
+# or
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Production server
+
+To start a local development server in production mode, run:
+
+```bash
+ng serve --configuration=production
+# or
+npm run start:prod
+```
+
+This will serve the application with production settings, including:
+- Production environment variables
+- Optimized bundles
+- Disabled source maps
+
+Note: While this serves the application with production settings, for actual production deployment, it's recommended to use `ng build` followed by a production web server.
 
 ## Code scaffolding
 
@@ -53,6 +72,50 @@ ng e2e
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Docker Support
+
+This project includes Docker configuration for both development and production environments.
+
+### Development Mode
+
+To start the application in development mode using Docker, run:
+
+```bash
+# Using docker-compose directly
+docker-compose up app-dev
+
+# Or using npm script
+npm run docker:dev
+```
+
+This will build and start the development container, exposing the application on port 4200. The container includes:
+- Live reloading of changes
+- Development environment variables
+- Volume mapping for local development
+
+### Production Mode
+
+To start the application in production mode using Docker, run:
+
+```bash
+# Using docker-compose directly
+docker-compose up app-prod
+
+# Or using npm script
+npm run docker:prod
+```
+
+This will build and start the production container, exposing the application on port 80. The production container:
+- Uses Nginx to serve the built application
+- Includes production environment variables
+- Is optimized for performance
+
+### Additional Notes
+
+- You can use the `-d` flag to run containers in detached mode: `docker-compose up -d app-dev`
+- To stop the containers, use: `docker-compose down` or `npm run docker:down`
+- To rebuild the containers after making changes to Dockerfile or docker-compose.yml, use: `docker-compose build`
 
 ## Additional Resources
 

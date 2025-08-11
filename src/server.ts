@@ -59,6 +59,7 @@ app.use(
  * Handle all other requests by rendering the Angular application.
  */
 app.use('/**', (req, res, next) => {
+  console.log('req', req.baseUrl);
   angularApp
     .handle(req)
     .then((response) =>
@@ -72,6 +73,7 @@ app.use('/**', (req, res, next) => {
  * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
  */
 if (isMainModule(import.meta.url)) {
+  console.log('**** Starting server...');
   const port = process.env['PORT'] || 4000;
   app.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
