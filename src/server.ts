@@ -5,32 +5,14 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
-import cookieParser from 'cookie-parser';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-import { PostService } from './server/services/post.service.server';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
-app.use(cookieParser());
 const angularApp = new AngularNodeAppEngine();
-
-const postService = new PostService(/* inject dependencies */);
-
-app.post('/api/posts', express.json(), async (req, res) => {
-  try {
-    const accessToken = req.cookies.access_token;
-    const result = await postService.create(req.body, accessToken);
-    res.json(result);
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-    res.status(500).json({ error: errorMessage });
-  }
-});
-
 
 /**
  * Example Express Rest API endpoints can be defined here.
