@@ -1,0 +1,17 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# The rest of the application will be mounted as a volume in docker-compose.yml
+
+# Expose the port the app runs on
+EXPOSE 4200
+
+# Start the development server
+CMD ["npm", "start", "--", "--host", "0.0.0.0"]

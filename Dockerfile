@@ -1,30 +1,37 @@
-# Stage 1: Build the Angular app with development dependencies
 FROM node:20-alpine AS build
 
-# Set working directory
 WORKDIR /app
 
-# Install dependencies first to leverage Docker cache
-COPY package.json package-lock.json ./
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
 RUN npm ci
 
-# Copy source files
+# Copy the rest of the application
 COPY . .
 
-# Build the application with development configuration
-RUN npm run build -- --configuration=production
+# Build the application for production with SSR
+RUN npm run build
 
-# Stage 3: Production environment
-FROM nginx:alpine AS production
+# Production stage
+FROM node:20-alpine AS production
 
-# Copy the built app from the build stage
-COPY --from=build /app/dist/angular-19-i18n/browser /usr/share/nginx/html
+WORKDIR /app
 
-# Copy nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy only the built application from the build stage
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package*.json ./
 
-# Expose port 80 for HTTP
+# Install only production dependencies
+RUN npm ci --omit=dev
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=80
+
+# Expose the port the app runs on
 EXPOSE 80
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the server
+CMD ["node", "dist/angular-19-i18n/server/server.mjs"]

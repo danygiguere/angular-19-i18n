@@ -107,15 +107,46 @@ npm run docker:prod
 ```
 
 This will build and start the production container, exposing the application on port 80. The production container:
-- Uses Nginx to serve the built application
+- Uses Node.js to serve the SSR application
 - Includes production environment variables
-- Is optimized for performance
+- Is optimized for performance with a multi-stage build
+
+### Deployment to AWS ECR and ECS
+
+To deploy the application to AWS ECR and ECS, follow these steps:
+
+1. **Build and tag the Docker image**:
+   ```bash
+   docker build -t angular-19-i18n .
+   docker tag angular-19-i18n:latest <your-aws-account-id>.dkr.ecr.<region>.amazonaws.com/angular-19-i18n:latest
+   ```
+
+2. **Authenticate to AWS ECR**:
+   ```bash
+   aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <your-aws-account-id>.dkr.ecr.<region>.amazonaws.com
+   ```
+
+3. **Push the image to ECR**:
+   ```bash
+   docker push <your-aws-account-id>.dkr.ecr.<region>.amazonaws.com/angular-19-i18n:latest
+   ```
+
+4. **Create or update your ECS task definition**:
+   - Use the AWS Management Console or CLI to create a task definition
+   - Specify the ECR image URI
+   - Configure the container port mapping (80:80)
+   - Set environment variables as needed
+
+5. **Deploy to ECS**:
+   - Create or update an ECS service using the task definition
+   - Configure load balancing, networking, and auto-scaling as needed
 
 ### Additional Notes
 
 - You can use the `-d` flag to run containers in detached mode: `docker-compose up -d app-dev`
 - To stop the containers, use: `docker-compose down` or `npm run docker:down`
 - To rebuild the containers after making changes to Dockerfile or docker-compose.yml, use: `docker-compose build`
+- For CI/CD pipelines, consider using AWS CodeBuild and CodePipeline to automate the build and deployment process
 
 ## Additional Resources
 

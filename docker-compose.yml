@@ -1,21 +1,26 @@
 version: '3.8'
 
 services:
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm start
+
   app-prod:
     build:
       context: .
-      target: production
-      args:
-        - API_URL=${API_URL:-http://localhost:8080}
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     environment:
       - NODE_ENV=production
-      - CHOKIDAR_USEPOLLING=true
-      - API_URL=${API_URL:-http://localhost:8080}
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+      - PORT=80
+    restart: unless-stopped
