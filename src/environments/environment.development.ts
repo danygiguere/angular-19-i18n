@@ -1,6 +1,6 @@
 import { Environment } from './environment.interface';
 
 export const environment: Environment = {
-  production: true,
+  production: false,
   apiUrl: 'http://localhost:8080'
 };

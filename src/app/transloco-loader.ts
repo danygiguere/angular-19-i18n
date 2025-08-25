@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Translation, TranslocoLoader } from '@jsverse/transloco';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environment';
 
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
@@ -9,7 +8,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
 
   getTranslation(lang: string) {
     return this.http.get<Translation>(
-      `${environment.baseUrl}/assets/i18n/${lang}.json`
+      `/assets/i18n/${lang}.json`
     );
   }
 }

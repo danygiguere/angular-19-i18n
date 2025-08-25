@@ -15,6 +15,7 @@ export class AuthService {
   http = inject(HttpClient);
 
   signIn(credential: Credential): Observable<SignInResponseDto> {
+    console.log("sign apiUrl:", environment.apiUrl);
     return this.http.post<SignInResponseDto>(`${environment.apiUrl}/login/cookie`, credential, { withCredentials: true });
   }
 
