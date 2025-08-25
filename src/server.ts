@@ -14,6 +14,8 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+console.log('Browser dist folder path:', browserDistFolder);
+
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
@@ -37,6 +39,17 @@ app.use(
   }),
 );
 
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+
+app.get('/health', (req, res) => {
+  console.log('Health check requested');
+  res.status(200).send('OK');
+});
+
 /**
  * Handle all other requests by rendering the Angular application.
  */
@@ -56,9 +69,9 @@ app.use('/**', (req, res, next) => {
  */
 if (isMainModule(import.meta.url)) {
   console.log('**** Starting server...');
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+  const port = process.env['PORT'] ? parseInt(process.env['PORT'], 10) : 4000;
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Node Express server listening on http://0.0.0.0:${port}`);
   });
 }
 
