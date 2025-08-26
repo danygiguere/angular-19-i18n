@@ -34,7 +34,10 @@ export class SignInComponent {
     }
     this.authService.signIn(this.formData).subscribe({
       next: (response) => {
-        this.cookieService.set('userId', response.id.toString(), undefined, '/');
+        this.cookieService.set('user_id', response.user.id.toString(), undefined, '/');
+        this.cookieService.set('access_token', response.accessToken, undefined, '/');
+        this.cookieService.set('refresh_token', response.refreshToken, undefined, '/');
+        this.cookieService.set('access_token_expires_at', response.accessTokenExpiresAtTimestamp, undefined, '/');
         window.location.href = '/';
       },
       error: (e) => {

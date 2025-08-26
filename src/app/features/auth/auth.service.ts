@@ -3,8 +3,8 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SignInResponseDto } from './dto/sign-in-response.dto';
 import { CookieService } from 'ngx-cookie-service';
-import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import {AuthDto} from './dto/auth.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +14,22 @@ export class AuthService {
 
   http = inject(HttpClient);
 
-  signIn(credential: Credential): Observable<SignInResponseDto> {
+  signInCookie(credential: Credential): Observable<SignInResponseDto> {
     console.log("sign apiUrl:", environment.apiUrl);
     return this.http.post<SignInResponseDto>(`${environment.apiUrl}/login/cookie`, credential, { withCredentials: true });
   }
 
-  refreshToken(): Observable<SignInResponseDto> {
+  refreshTokenCookie(): Observable<SignInResponseDto> {
     return this.http.post<SignInResponseDto>(`${environment.apiUrl}/refresh-token/cookie`, {}, { withCredentials: true });
+  }
+
+  signIn(credential: Credential): Observable<AuthDto> {
+    console.log("sign apiUrl:", environment.apiUrl);
+    return this.http.post<AuthDto>(`${environment.apiUrl}/login`, credential);
+  }
+
+  refreshToken(): Observable<AuthDto> {
+    return this.http.post<AuthDto>(`${environment.apiUrl}/refresh-token`, {});
   }
 
   signUp(credential: Credential): Observable<String> {
@@ -34,7 +43,19 @@ export class AuthService {
       console.log('Expires at:', new Date(expiresAt).toLocaleString());
       if (expiresAt <= Date.now()) {
         console.log('Refreshing token');
-        await firstValueFrom(this.refreshToken());
+        this.refreshToken().subscribe({
+          next: (response) => {
+            this.cookieService.set('user_id', response.user.id.toString(), undefined, '/');
+            this.cookieService.set('access_token', response.accessToken, undefined, '/');
+            this.cookieService.set('refresh_token', response.refreshToken, undefined, '/');
+            this.cookieService.set('access_token_expires_at', response.accessTokenExpiresAtTimestamp, undefined, '/');
+            window.location.href = '/';
+          },
+          error: (e) => {
+
+          }
+        });
+
         console.log('Token refreshed successfully');
       }
     }
