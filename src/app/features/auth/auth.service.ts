@@ -16,24 +16,24 @@ export class AuthService {
 
   signInCookie(credential: Credential): Observable<SignInResponseDto> {
     console.log("sign apiUrl:", environment.apiUrl);
-    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/login/cookie`, credential, { withCredentials: true });
+    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/api/login/cookie`, credential, { withCredentials: true });
   }
 
   refreshTokenCookie(): Observable<SignInResponseDto> {
-    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/refresh-token/cookie`, {}, { withCredentials: true });
+    return this.http.post<SignInResponseDto>(`${environment.apiUrl}/api/refresh-token/cookie`, {}, { withCredentials: true });
   }
 
   signIn(credential: Credential): Observable<AuthDto> {
     console.log("sign apiUrl:", environment.apiUrl);
-    return this.http.post<AuthDto>(`${environment.apiUrl}/login`, credential);
+    return this.http.post<AuthDto>(`${environment.apiUrl}/api/login`, credential);
   }
 
   refreshToken(): Observable<AuthDto> {
-    return this.http.post<AuthDto>(`${environment.apiUrl}/refresh-token`, {});
+    return this.http.post<AuthDto>(`${environment.apiUrl}/api/refresh-token`, {});
   }
 
   signUp(credential: Credential): Observable<String> {
-    return this.http.post<String>(`${environment.apiUrl}/register`, credential);
+    return this.http.post<String>(`${environment.apiUrl}/api/register`, credential);
   }
 
   async ensureTokenValid(): Promise<void> {
@@ -65,7 +65,7 @@ export class AuthService {
     console.log('Signing out');
     this.cookieService.delete('userId', '/');
     this.cookieService.delete('access_token_expires_at', '/');
-    this.http.post<String>(`${environment.apiUrl}/logout`, {}, { withCredentials: true }).subscribe(() => {
+    this.http.post<String>(`${environment.apiUrl}/api/logout`, {}, { withCredentials: true }).subscribe(() => {
       console.log('Logged out successfully');
       window.location.href = '/';
     });
