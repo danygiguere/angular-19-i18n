@@ -19,7 +19,7 @@ export class PostService {
     await this.authService.ensureTokenValid();
     console.log('Creating post with DTO:');
     return Promise.resolve(
-      this.http.post<PostDto>(`${environment.apiUrl}/api/posts`, postDto, { withCredentials: true })
+      this.http.post<PostDto>(`${environment.apiUrl}/posts`, postDto, { withCredentials: true })
     );
   }
 
@@ -27,7 +27,7 @@ export class PostService {
     await this.authService.ensureTokenValid();
     console.log('Updating post with DTO:');
     return Promise.resolve(
-      this.http.put<PostDto>(`${environment.apiUrl}/api/posts/${id}`, postDto, { withCredentials: true })
+      this.http.put<PostDto>(`${environment.apiUrl}/posts/${id}`, postDto, { withCredentials: true })
     );
   }
 
